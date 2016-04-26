@@ -2,6 +2,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Traits\DescriptionTrait;
+use AppBundle\Entity\Traits\ImageTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -22,6 +23,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 class Artist extends AbstractBase
 {
     use DescriptionTrait;
+    use ImageTrait;
 
     /**
      * @var string
@@ -40,13 +42,6 @@ class Artist extends AbstractBase
      * @Assert\Image(minWidth = 1200)
      */
     private $imageFile;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $imageName;
 
     /**
      * @var string
@@ -102,54 +97,6 @@ class Artist extends AbstractBase
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * Set imageFile
-     *
-     * @param File|UploadedFile $imageFile
-     *
-     * @return $this
-     */
-    public function setImageFile(File $imageFile = null)
-    {
-        $this->imageFile = $imageFile;
-        if ($imageFile) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTime('now');
-        }
-
-        return $this;
-    }
-
-    /**
-     * Get imageFile
-     *
-     * @return File|UploadedFile
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->imageName;
-    }
-
-    /**
-     * @param string $imageName
-     *
-     * @return Artist
-     */
-    public function setImageName($imageName)
-    {
-        $this->imageName = $imageName;
         return $this;
     }
 
