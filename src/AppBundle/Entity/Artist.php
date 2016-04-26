@@ -32,7 +32,7 @@ class Artist extends AbstractBase
     /**
      * @var File
      *
-     * @Vich\UploadableField(mapping="coworker", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="artist", fileNameProperty="imageName")
      * @Assert\File(
      *     maxSize = "10M",
      *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"}
@@ -66,7 +66,7 @@ class Artist extends AbstractBase
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Artist", mappedBy="event")
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="artist")
      */
     private $events;
 
@@ -110,7 +110,7 @@ class Artist extends AbstractBase
      *
      * @param File|UploadedFile $imageFile
      *
-     * @return File
+     * @return $this
      */
     public function setImageFile(File $imageFile = null)
     {

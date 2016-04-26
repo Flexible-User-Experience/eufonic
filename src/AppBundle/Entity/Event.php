@@ -29,14 +29,14 @@ class Event extends AbstractBase
     /**
      * @var float
      *
-     * @ORM\Column(type="float", name="longitude")
+     * @ORM\Column(type="float", name="longitude", precision=12)
      */
     private $longitude;
 
     /**
      * @var float
      *
-     * @ORM\Column(type="float", name="latitude")
+     * @ORM\Column(type="float", name="latitude", precision=12)
      */
     private $latitude;
 
@@ -78,6 +78,7 @@ class Event extends AbstractBase
     public function setPlace($place)
     {
         $this->place = $place;
+
         return $this;
     }
 
@@ -97,6 +98,7 @@ class Event extends AbstractBase
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
+
         return $this;
     }
 
@@ -116,6 +118,7 @@ class Event extends AbstractBase
     public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
+
         return $this;
     }
 
@@ -135,6 +138,7 @@ class Event extends AbstractBase
     public function setArtist(Artist $artist)
     {
         $this->artist = $artist;
+
         return $this;
     }
 
@@ -154,6 +158,7 @@ class Event extends AbstractBase
     public function setCategory(Category $category)
     {
         $this->category = $category;
+
         return $this;
     }
 }
