@@ -1,0 +1,22 @@
+## Artists
+AppBundle\Entity\Artist:
+  artist{1..12}:
+    name: <name()>
+    description: <paragraph()>
+    urlVimeo: <url()>
+    urlSoundCloud: <url()>
+
+## Category
+AppBundle\Entity\Category:
+  category{1..5}:
+    title: <word()>
+
+## Events
+AppBundle\Entity\Event:
+  event{1..20}:
+    date: <dateTimeThisMonth()>
+    place: <state()>
+    latitude: <latitude($min = -90, $max = 90)>
+    longitude: <longitude($min = -180, $max = 180)>
+    artist: @artist<numberBetween(1, 12)>
+    category: @category<numberBetween(1, 5)>
