@@ -5,23 +5,18 @@ AppBundle\Entity\Artist:
     description: <paragraph()>
     urlVimeo: <url()>
     urlSoundCloud: <url()>
-    events: [ @event1 ]
 
 ## Category
 AppBundle\Entity\Category:
   category{1..5}:
     title: <word()>
-    events: [ @event1 ]
 
 ## Events
 AppBundle\Entity\Event:
   event{1..20}:
-    title: <sentence()>
-    description: <paragraph()>
-    type: <word()>
     date: <dateTimeThisMonth()>
     place: <state()>
     latitude: <latitude($min = -90, $max = 90)>
     longitude: <longitude($min = -180, $max = 180)>
-#    artist: @artist<numberBetween(1, 12)>
-#    category: @category<numberBetween(1, 5)>
+    artist: @artist<numberBetween(1, 12)>
+    category: @category<numberBetween(1, 5)>

@@ -54,9 +54,32 @@ class Category extends AbstractBase
      *
      * @return $this
      */
-    public function setEvents(ArrayCollection $events)
+    public function setEvents($events)
     {
         $this->events = $events;
+        return $this;
+    }
+
+    /* @param Event $event
+     *
+     * @return $this
+     */
+    public function addEvent(Event $event)
+    {
+        $event->setCategory($this);
+        $this->events->add($event);
+
+        return $this;
+    }
+
+    /* @param Event $event
+     *
+     * @return $this
+     */
+    public function removeEvent(Event $event)
+    {
+        $this->events->removeElement($event);
+
         return $this;
     }
 

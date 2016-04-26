@@ -76,7 +76,7 @@ class Artist extends AbstractBase
     /**
      * Artist constructor.
      */
-    public function __construct($events)
+    public function __construct()
     {
         $this->events = new ArrayCollection();
     }
@@ -151,9 +151,32 @@ class Artist extends AbstractBase
      *
      * @return $this
      */
-    public function setEvents(ArrayCollection $events)
+    public function setEvents($events)
     {
         $this->events = $events;
+        return $this;
+    }
+
+    /* @param Event $event
+     *
+     * @return $this
+     */
+    public function addEvent(Event $event)
+    {
+        $event->setArtist($this);
+        $this->events->add($event);
+
+        return $this;
+    }
+
+    /* @param Event $event
+     *
+     * @return $this
+     */
+    public function removeEvent(Event $event)
+    {
+        $this->events->removeElement($event);
+
         return $this;
     }
 
