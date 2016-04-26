@@ -4,4 +4,4 @@ services:
         class: AppBundle\Admin\ArtistAdmin
         arguments: [ ~ , AppBundle\Entity\Artist, ~ ]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: "Artist", group: "Artists" }
+            - { name: sonata.admin, manager_type: orm, label: "Artist", group: "Artist" }
