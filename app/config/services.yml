@@ -5,3 +5,8 @@ services:
         arguments: [ ~ , AppBundle\Entity\Artist, ~ ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Artist", group: "Artist" }
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "User", group: "Users" }
