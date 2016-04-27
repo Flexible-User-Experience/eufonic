@@ -38,6 +38,25 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    java:           "%path_java%"
+    node:           "%path_node%"
+    filters:
+        cssrewrite: ~
+        less:
+            node:       "%path_node%"
+            node_paths: [ "%path_node_modules%" ]
+    assets:
+        mycss:
+            inputs:
+                - "@AppBundle/Resources/public/css/frontend.less"
+        myjs:
+            inputs:
+                - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
+
 # Doctrine Configuration
 doctrine:
     dbal:
