@@ -91,6 +91,8 @@ sonata_admin:
         groups:
             Artist:
                 icon: "<i class='fa fa-chrome'></i>"
+            Users:
+                icon: "<i class='fa fa-user'></i>"
 
         blocks:
             -
@@ -106,6 +108,12 @@ sonata_admin:
                 class: col-md-6
                 settings:
                     groups: [ Artist ]
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Users ]
 
 # Stof Doctrine Extensions
 stof_doctrine_extensions:
