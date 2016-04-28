@@ -27,3 +27,5 @@ parameters:
     private_editor_test_pass: user
 
     project_web_title: "Eufonic"
+
+    locale: ca

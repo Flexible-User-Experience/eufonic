@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class Artist
@@ -28,6 +29,7 @@ class Artist extends AbstractBase
     /**
      * @var string
      * @ORM\Column(type="string", length=255)
+     * @JMS\Groups({"list", "detail"})
      */
     private $name;
 
@@ -48,6 +50,7 @@ class Artist extends AbstractBase
      *
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url(checkDNS=true)
+     * @JMS\Groups({"detail"})
      */
     private $urlVimeo;
 
@@ -56,6 +59,7 @@ class Artist extends AbstractBase
      *
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url(checkDNS=true)
+     * @JMS\Groups({"detail"})
      */
     private $urlSoundCloud;
 
