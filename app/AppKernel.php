@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             // vendors
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),

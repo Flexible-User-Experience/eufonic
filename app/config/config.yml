@@ -163,3 +163,10 @@ fos_rest:
         view_response_listener: "force"
     routing_loader:
         default_format: json
+
+# CKEditor
+ivory_ck_editor:
+    inline: false
+    configs:
+        my_config:
+            toolbar: standard
