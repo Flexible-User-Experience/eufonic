@@ -40,19 +40,19 @@ class ArtistAdmin extends AbstractBaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('backend.admin.general', $this->getFormMdSuccessBoxArray(8))
+            ->with('General', $this->getFormMdSuccessBoxArray(8))
             ->add(
                 'name',
                 null,
                 array(
-                    'label' => 'backend.admin.coworker.name',
+                    'label' => 'Nom',
                 )
             )
             ->add(
                 'description',
                 'ckeditor',
                 array(
-                    'label' => 'backend.admin.coworker.description',
+                    'label' => 'Descripció',
                     'config_name' => 'my_config',
                     'required'    => true,
                 )
@@ -61,7 +61,7 @@ class ArtistAdmin extends AbstractBaseAdmin
                 'imageFile',
                 'file',
                 array(
-                    'label'    => 'backend.admin.post.image',
+                    'label'    => 'Imatge',
                     'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                     'required' => false,
                 )
@@ -70,23 +70,23 @@ class ArtistAdmin extends AbstractBaseAdmin
                 'urlVimeo',
                 null,
                 array(
-                    'label' => 'backend.admin.coworker.name',
+                    'label' => 'Vimeo',
                 )
             )
             ->add(
                 'urlSoundCloud',
                 null,
                 array(
-                    'label' => 'backend.admin.coworker.name',
+                    'label' => 'Sound Cloud',
                 )
             )
             ->end()
-            ->with('backend.admin.controls', $this->getFormMdSuccessBoxArray(4))
+            ->with('Controls', $this->getFormMdSuccessBoxArray(4))
             ->add(
                 'enabled',
                 'checkbox',
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label'    => 'Actiu',
                     'required' => false,
                 )
             )
@@ -103,21 +103,21 @@ class ArtistAdmin extends AbstractBaseAdmin
                 'name',
                 null,
                 array(
-                    'label' => 'backend.admin.coworker.name',
+                    'label' => 'Nom',
                 )
             )
             ->add(
                 'description',
                 null,
                 array(
-                    'label' => 'backend.admin.coworker.email',
+                    'label' => 'Correu electrònic',
                 )
             )
             ->add(
                 'enabled',
                 null,
                 array(
-                    'label'    => 'backend.admin.enabled',
+                    'label'    => 'Actiu',
                     'editable' => true,
                 )
             );
@@ -134,7 +134,7 @@ class ArtistAdmin extends AbstractBaseAdmin
                 'image',
                 null,
                 array(
-                    'label'    => 'backend.admin.event.image',
+                    'label'    => 'Imatge',
                     'template' => '::Admin/Cells/list__cell_image_field.html.twig'
                 )
             )
@@ -142,7 +142,7 @@ class ArtistAdmin extends AbstractBaseAdmin
                 'name',
                 null,
                 array(
-                    'label' => 'backend.admin.coworker.name',
+                    'label' => 'Nom',
                     'editable' => true,
                 )
             )
@@ -150,7 +150,7 @@ class ArtistAdmin extends AbstractBaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label' => 'backend.admin.enabled',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             )
@@ -158,7 +158,7 @@ class ArtistAdmin extends AbstractBaseAdmin
                 '_action',
                 'actions',
                 array(
-                    'label'   => 'backend.admin.actions',
+                    'label'   => 'Accions',
                     'actions' => array(
                         'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
