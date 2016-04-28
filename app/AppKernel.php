@@ -27,7 +27,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-//            new Liip\ImagineBundle\LiipImagineBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            // new Liip\ImagineBundle\LiipImagineBundle(),
             // app
             new AppBundle\AppBundle(),
         );
