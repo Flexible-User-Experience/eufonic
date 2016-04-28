@@ -22,6 +22,7 @@ use Symfony\Component\Routing\Exception\InvalidParameterException;
  * @author   David Romaní <david@flux.cat>
  *
  * @Rest\NamePrefix("api_artist_")
+ * @Rest\Prefix("artist")
  */
 class ArtistController extends FOSRestController implements ClassResourceInterface
 {
@@ -30,7 +31,7 @@ class ArtistController extends FOSRestController implements ClassResourceInterfa
      *
      * @Rest\View(serializerGroups={"list"})
      * @Rest\Get("/list")
-     * @ApiDoc(
+     * ApiDoc(
      *  section="Artist",
      *  resource=true,
      *  description="Get artists list",

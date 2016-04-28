@@ -4,8 +4,8 @@
 
 api:
     type:     rest
-#    prefix:   /museum
-    resource: "@AppBundle/Controller/API/"
+    prefix:   /api
+    resource: "@AppBundle/Controller/API/ArtistController.php"
 
 sonata:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
