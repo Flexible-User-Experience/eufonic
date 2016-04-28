@@ -33,6 +33,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - "bootstrap_3_layout.html.twig"
+        - "SonataCoreBundle:Form:datepicker.html.twig"
 
 # Assetic Configuration
 assetic:
@@ -107,6 +110,8 @@ sonata_admin:
         groups:
             Artist:
                 icon: "<i class='fa fa-chrome'></i>"
+            Events:
+                icon: "<i class='fa fa-calendar-times-o'></i>"
             Users:
                 icon: "<i class='fa fa-user'></i>"
 
@@ -124,6 +129,12 @@ sonata_admin:
                 class: col-md-6
                 settings:
                     groups: [ Artist ]
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Events ]
             -
                 position: top
                 type: sonata.admin.block.admin_list
