@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Image trait
@@ -21,6 +22,7 @@ Trait ImageTrait
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Groups({"detail"})
      */
     private $imageName;
 

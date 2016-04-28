@@ -23,7 +23,7 @@ abstract class AbstractBase
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
-     * @JMS\Groups({"list"})
+     * @JMS\Groups({"list", "detail"})
      */
     protected $id;
 

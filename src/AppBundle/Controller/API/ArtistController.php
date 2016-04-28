@@ -52,4 +52,31 @@ class ArtistController extends FOSRestController implements ClassResourceInterfa
 
         return array('artists' => $entities);
     }
+
+    /**
+     * Get artists detail
+     *
+     * @Rest\View(serializerGroups={"detail"})
+     * @Rest\Get("/{id}")
+     * ApiDoc(
+     *  section="Artist",
+     *  resource=true,
+     *  description="Get artists detail",
+     *  requirements={
+     *      {"name"="_locale", "dataType"="string", "requirement"="ca|oc|es|en|fr", "description"="available locales"},
+     *      {"name"="_format", "dataType"="string", "requirement"="json|xml", "description"="available formats"}
+     *  },
+     *  statusCodes={
+     *         200="Returned when successful"
+     *     }
+     * )
+     *
+     * @return Response
+     */
+    public function getAction($id)
+    {
+        $entity = $this->getDoctrine()->getRepository('AppBundle:Artist')->find($id);
+
+        return array('artist' => $entity);
+    }
 }
