@@ -2,17 +2,17 @@ services:
 # Sonata Admin
     admin.artist:
         class: AppBundle\Admin\ArtistAdmin
-        arguments: [ ~ , AppBundle\Entity\Artist, ~ ]
+        arguments: [ ~ , AppBundle\Entity\Artist, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager"]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Artist", group: "Artist" }
     admin.event:
         class: AppBundle\Admin\EventAdmin
-        arguments: [ ~ , AppBundle\Entity\Event, ~ ]
+        arguments: [ ~ , AppBundle\Entity\Event, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Events", group: "Events" }
     admin.category:
         class: AppBundle\Admin\CategoryAdmin
-        arguments: [ ~ , AppBundle\Entity\Category, ~ ]
+        arguments: [ ~ , AppBundle\Entity\Category, ~, "@vich_uploader.templating.helper.uploader_helper", "@liip_imagine.cache.manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Category", group: "Events" }
     admin.user:
