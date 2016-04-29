@@ -181,7 +181,7 @@ class EventAdmin extends AbstractBaseAdmin
                 'date',
                 array(
                     'label'    => 'Data',
-                    'format'   => 'd/m/Y',
+                    'format'   => 'h:i d/M',
                     'editable' => true,
                 )
             )
@@ -191,6 +191,20 @@ class EventAdmin extends AbstractBaseAdmin
                 array(
                     'label' => 'Lloc',
                     'editable' => true,
+                )
+            )
+            ->add(
+                'artist',
+                null,
+                array(
+                    'label' => 'Artista',
+                )
+            )
+            ->add(
+                'category',
+                null,
+                array(
+                    'label' => 'Categoria',
                 )
             )
             ->add(
