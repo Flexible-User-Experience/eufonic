@@ -5,7 +5,7 @@
 api:
     type:     rest
     prefix:   /api
-    resource: "@AppBundle/Controller/API/ArtistController.php"
+    resource: "@AppBundle/Resources/config/api-routing.yml"
 
 sonata:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
