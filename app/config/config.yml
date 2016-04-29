@@ -109,7 +109,7 @@ sonata_admin:
     dashboard:
         groups:
             Artist:
-                icon: "<i class='fa fa-chrome'></i>"
+                icon: "<i class='fa fa-microphone' aria-hidden='true'></i>"
             Events:
                 icon: "<i class='fa fa-calendar-times-o'></i>"
             Users:
