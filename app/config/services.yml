@@ -10,6 +10,11 @@ services:
         arguments: [ ~ , AppBundle\Entity\Event, ~ ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Events", group: "Events" }
+    admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        arguments: [ ~ , AppBundle\Entity\Category, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Category", group: "Events" }
     admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]

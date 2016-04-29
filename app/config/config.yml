@@ -140,6 +140,12 @@ sonata_admin:
                 type: sonata.admin.block.admin_list
                 class: col-md-6
                 settings:
+                    groups: [ Category ]
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
                     groups: [ Users ]
 
 # Stof Doctrine Extensions
