@@ -21,7 +21,7 @@ class Category extends AbstractBase
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Event", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="category", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $events;
 
