@@ -43,11 +43,11 @@ class EventAdmin extends AbstractBaseAdmin
             ->with('General', $this->getFormMdSuccessBoxArray(8))
             ->add(
                 'date',
-                'sonata_type_date_picker',
+                'sonata_type_datetime_picker',
                 array(
                     'label'  => 'Data',
-                    'format' => 'HH:MM d/M/y',
-                )
+                    'date_format' => 'd/M/y',
+                    )
             )
 //            ->add(
 //                'description',
@@ -181,7 +181,8 @@ class EventAdmin extends AbstractBaseAdmin
                 'date',
                 array(
                     'label'    => 'Data',
-                    'format'   => 'h:i d/M',
+                    'field_type' => 'sonata_type_datetime_picker',
+                    'format'   => 'd/M',
                     'editable' => true,
                 )
             )
