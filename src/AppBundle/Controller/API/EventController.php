@@ -10,26 +10,26 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Class ArtistController
+ * Class EventController
  *
  * @category Controller
  * @package  AppBundle\Controller\API
  * @author   David Romaní <david@flux.cat>
  *
- * @Rest\NamePrefix("api_artist_")
- * @Rest\Prefix("artist")
+ * @Rest\NamePrefix("api_event_")
+ * @Rest\Prefix("event")
  */
-class ArtistController extends FOSRestController implements ClassResourceInterface
+class EventController extends FOSRestController implements ClassResourceInterface
 {
     /**
-     * Get artists list
+     * Get events list
      *
      * @Rest\View(serializerGroups={"list"})
      * @Rest\Get("/list")
      * @ApiDoc(
-     *  section="Artist",
+     *  section="Event",
      *  resource=true,
-     *  description="Get artists list",
+     *  description="Get events list",
      *  requirements={
      *      {"name"="_format", "dataType"="string", "requirement"="json|xml", "description"="available formats"}
      *  },
@@ -42,20 +42,20 @@ class ArtistController extends FOSRestController implements ClassResourceInterfa
      */
     public function cgetAction()
     {
-        $entities = $this->getDoctrine()->getRepository('AppBundle:Artist')->findAll();
+        $entities = $this->getDoctrine()->getRepository('AppBundle:Event')->findAll();
 
-        return array('artists' => $entities);
+        return array('events' => $entities);
     }
 
     /**
-     * Get artists detail
+     * Get event detail
      *
      * @Rest\View(serializerGroups={"detail"})
      * @Rest\Get("/{id}")
      * @ApiDoc(
-     *  section="Artist",
+     *  section="Event",
      *  resource=true,
-     *  description="Get artist detail",
+     *  description="Get event detail",
      *  requirements={
      *      {"name"="id", "dataType"="integer", "description"="entity id"},
      *      {"name"="_format", "dataType"="string", "requirement"="json|xml", "description"="available formats"}
@@ -69,8 +69,8 @@ class ArtistController extends FOSRestController implements ClassResourceInterfa
      */
     public function getAction($id)
     {
-        $entity = $this->getDoctrine()->getRepository('AppBundle:Artist')->find($id);
+        $entity = $this->getDoctrine()->getRepository('AppBundle:Event')->find($id);
 
-        return array('artist' => $entity);
+        return array('event' => $entity);
     }
 }

@@ -8,19 +8,19 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
- * Class ArtistAdmin
+ * Class CategoryAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   Anton Serra <aserratorta@gmail.com>
  */
-class ArtistAdmin extends AbstractBaseAdmin
+class CategoryAdmin extends AbstractBaseAdmin
 {
-    protected $classnameLabel = 'Artist';
-    protected $baseRoutePattern = 'artists/artist';
+    protected $classnameLabel = 'Category';
+    protected $baseRoutePattern = 'events/category';
     protected $datagridValues = array(
-        '_sort_by'    => 'name',
-        '_sort_order' => 'asc',
+        '_sort_by'    => 'title',
+        '_sort_order' => 'desc',
     );
 
     /**
@@ -31,6 +31,7 @@ class ArtistAdmin extends AbstractBaseAdmin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection
+            ->remove('show')
             ->remove('batch');
     }
 
@@ -40,48 +41,16 @@ class ArtistAdmin extends AbstractBaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General', $this->getFormMdSuccessBoxArray(8))
+            ->with('General', $this->getFormMdSuccessBoxArray(7))
             ->add(
-                'name',
+                'title',
                 null,
                 array(
-                    'label' => 'Nom',
-                )
-            )
-            ->add(
-                'description',
-                'ckeditor',
-                array(
-                    'label' => 'Descripció',
-                    'config_name' => 'my_config',
-                    'required'    => true,
-                )
-            )
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Imatge',
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                    'required' => false,
-                )
-            )
-            ->add(
-                'urlVimeo',
-                null,
-                array(
-                    'label' => 'Vimeo',
-                )
-            )
-            ->add(
-                'urlSoundCloud',
-                null,
-                array(
-                    'label' => 'Sound Cloud',
+                    'label' => 'Títol',
                 )
             )
             ->end()
-            ->with('Controls', $this->getFormMdSuccessBoxArray(4))
+            ->with('Controls', $this->getFormMdSuccessBoxArray(5))
             ->add(
                 'enabled',
                 'checkbox',
@@ -92,7 +61,6 @@ class ArtistAdmin extends AbstractBaseAdmin
             )
             ->end();
     }
-
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -100,24 +68,17 @@ class ArtistAdmin extends AbstractBaseAdmin
     {
         $datagridMapper
             ->add(
-                'name',
+                'title',
                 null,
                 array(
-                    'label' => 'Nom',
-                )
-            )
-            ->add(
-                'description',
-                null,
-                array(
-                    'label' => 'Correu electrònic',
+                    'label' => 'Títol',
                 )
             )
             ->add(
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             );
@@ -131,18 +92,10 @@ class ArtistAdmin extends AbstractBaseAdmin
         unset($this->listModes['mosaic']);
         $listMapper
             ->add(
-                'image',
+                'title',
                 null,
                 array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/Cells/list__cell_image_field.html.twig'
-                )
-            )
-            ->add(
-                'name',
-                null,
-                array(
-                    'label' => 'Nom',
+                    'label' => 'Títol',
                     'editable' => true,
                 )
             )

@@ -5,6 +5,7 @@ use AppBundle\Entity\Traits\DateTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class Event
@@ -23,6 +24,7 @@ class Event extends AbstractBase
      * @var string
      *
      * @ORM\Column(type="string", length=255)
+     * @JMS\Groups({"list", "detail"})
      */
     private $place;
 
@@ -30,6 +32,7 @@ class Event extends AbstractBase
      * @var float
      *
      * @ORM\Column(type="float", name="longitude", precision=12)
+     * @JMS\Groups({"detail"})
      */
     private $longitude;
 
@@ -37,6 +40,7 @@ class Event extends AbstractBase
      * @var float
      *
      * @ORM\Column(type="float", name="latitude", precision=12)
+     * @JMS\Groups({"detail"})
      */
     private $latitude;
 
@@ -44,6 +48,7 @@ class Event extends AbstractBase
      * @var Artist
      *
      * @ORM\ManyToOne(targetEntity="Artist", inversedBy="events")
+     * @JMS\Groups({"list", "detail"})
      */
     private $artist;
 
@@ -51,6 +56,7 @@ class Event extends AbstractBase
      * @var Category
      *
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="events")
+     * @JMS\Groups({"list", "detail"})
      */
     private $category;
 

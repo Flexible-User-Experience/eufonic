@@ -65,7 +65,7 @@ class Artist extends AbstractBase
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Event", mappedBy="artist")
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="artist", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $events;
 

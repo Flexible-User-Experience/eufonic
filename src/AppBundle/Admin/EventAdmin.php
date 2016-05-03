@@ -8,19 +8,19 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
- * Class ArtistAdmin
+ * Class EventAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   Anton Serra <aserratorta@gmail.com>
  */
-class ArtistAdmin extends AbstractBaseAdmin
+class EventAdmin extends AbstractBaseAdmin
 {
-    protected $classnameLabel = 'Artist';
-    protected $baseRoutePattern = 'artists/artist';
+    protected $classnameLabel = 'Event';
+    protected $baseRoutePattern = 'events/event';
     protected $datagridValues = array(
-        '_sort_by'    => 'name',
-        '_sort_order' => 'asc',
+        '_sort_by'    => 'date',
+        '_sort_order' => 'desc',
     );
 
     /**
@@ -42,46 +42,69 @@ class ArtistAdmin extends AbstractBaseAdmin
         $formMapper
             ->with('General', $this->getFormMdSuccessBoxArray(8))
             ->add(
-                'name',
+                'date',
+                'sonata_type_datetime_picker',
+                array(
+                    'label'  => 'Data',
+                    'date_format' => 'yyyy-MM-dd HH:mm:ss',
+                    )
+            )
+//            ->add(
+//                'description',
+//                'ckeditor',
+//                array(
+//                    'label' => 'Descripció',
+//                    'config_name' => 'my_config',
+//                    'required'    => true,
+//                )
+//            )
+//            ->add(
+//                'imageFile',
+//                'file',
+//                array(
+//                    'label'    => 'Imatge',
+//                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+//                    'required' => false,
+//                )
+//            )
+            ->add(
+                'place',
                 null,
                 array(
-                    'label' => 'Nom',
+                    'label' => 'Lloc',
                 )
             )
             ->add(
-                'description',
-                'ckeditor',
-                array(
-                    'label' => 'Descripció',
-                    'config_name' => 'my_config',
-                    'required'    => true,
-                )
-            )
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Imatge',
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                    'required' => false,
-                )
-            )
-            ->add(
-                'urlVimeo',
+                'artist',
                 null,
                 array(
-                    'label' => 'Vimeo',
+                    'label' => 'Artista',
                 )
             )
             ->add(
-                'urlSoundCloud',
+                'category',
                 null,
                 array(
-                    'label' => 'Sound Cloud',
+                    'label' => 'Categoria',
+                    'required' => true,
                 )
             )
             ->end()
             ->with('Controls', $this->getFormMdSuccessBoxArray(4))
+            ->add(
+                'longitude',
+                null,
+                array(
+                    'label' => 'Longitud',
+                )
+            )
+            ->add(
+                'latitude',
+                null,
+                array(
+                    'label' => 'Latitud',
+                )
+            )
             ->add(
                 'enabled',
                 'checkbox',
@@ -100,17 +123,33 @@ class ArtistAdmin extends AbstractBaseAdmin
     {
         $datagridMapper
             ->add(
-                'name',
-                null,
+                'date',
+                'doctrine_orm_date',
                 array(
-                    'label' => 'Nom',
+                    'label'      => 'Data',
+                    'field_type' => 'sonata_type_date_picker',
+                    'format'     => 'd-m-Y',
                 )
             )
             ->add(
-                'description',
+                'place',
                 null,
                 array(
-                    'label' => 'Correu electrònic',
+                    'label' => 'Lloc',
+                )
+            )
+            ->add(
+                'artist',
+                null,
+                array(
+                    'label' => 'Artista',
+                )
+            )
+            ->add(
+                'category',
+                null,
+                array(
+                    'label' => 'Categoria',
                 )
             )
             ->add(
@@ -130,20 +169,44 @@ class ArtistAdmin extends AbstractBaseAdmin
     {
         unset($this->listModes['mosaic']);
         $listMapper
+//            ->add(
+//                'image',
+//                null,
+//                array(
+//                    'label'    => 'Imatge',
+//                    'template' => '::Admin/Cells/list__cell_image_field.html.twig'
+//                )
+//            )
             ->add(
-                'image',
-                null,
+                'date',
+                'date',
                 array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/Cells/list__cell_image_field.html.twig'
+                    'label'    => 'Data',
+                    'field_type' => 'sonata_type_datetime_picker',
+                    'format'   => 'd/M',
+                    'editable' => true,
                 )
             )
             ->add(
-                'name',
+                'place',
                 null,
                 array(
-                    'label' => 'Nom',
+                    'label' => 'Lloc',
                     'editable' => true,
+                )
+            )
+            ->add(
+                'artist',
+                null,
+                array(
+                    'label' => 'Artista',
+                )
+            )
+            ->add(
+                'category',
+                null,
+                array(
+                    'label' => 'Categoria',
                 )
             )
             ->add(

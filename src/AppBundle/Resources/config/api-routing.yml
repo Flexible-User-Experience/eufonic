@@ -1,0 +1,8 @@
+api_artists:
+    type: rest
+    resource: "@AppBundle/Controller/API/ArtistController.php"
+    name_prefix:  api_artists_
+api_events:
+    type: rest
+    resource: "@AppBundle/Controller/API/EventController.php"
+    name_prefix:  api_events_

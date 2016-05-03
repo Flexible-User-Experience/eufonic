@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Title trait
@@ -17,6 +18,7 @@ Trait TitleTrait
      * @var string
      *
      * @ORM\Column(type="string", length=255)
+     * @JMS\Groups({"list", "detail"})
      */
     private $title;
 

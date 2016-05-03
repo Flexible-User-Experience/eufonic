@@ -5,7 +5,11 @@
 api:
     type:     rest
     prefix:   /api
-    resource: "@AppBundle/Controller/API/ArtistController.php"
+    resource: "@AppBundle/Resources/config/api-routing.yml"
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
 
 sonata:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
@@ -23,4 +27,7 @@ sonata_user_admin_security:
 sonata_user_admin_resetting:
     resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
     prefix:   /admin/resetting
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
 

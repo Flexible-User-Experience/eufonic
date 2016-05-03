@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: media.yml }
 
 framework:
     #esi:             ~
@@ -32,6 +33,12 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - "bootstrap_3_layout.html.twig"
+        - "SonataCoreBundle:Form:datepicker.html.twig"
+    globals:
+        admin_tag_version:        "v0.0.1"
+        main_brand_title: "%project_web_title%"
 
 # Assetic Configuration
 assetic:
@@ -105,7 +112,9 @@ sonata_admin:
     dashboard:
         groups:
             Artist:
-                icon: "<i class='fa fa-chrome'></i>"
+                icon: "<i class='fa fa-microphone' aria-hidden='true'></i>"
+            Events:
+                icon: "<i class='fa fa-calendar-times-o'></i>"
             Users:
                 icon: "<i class='fa fa-user'></i>"
 
@@ -123,6 +132,18 @@ sonata_admin:
                 class: col-md-6
                 settings:
                     groups: [ Artist ]
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Events ]
+            -
+                position: top
+                type: sonata.admin.block.admin_list
+                class: col-md-6
+                settings:
+                    groups: [ Category ]
             -
                 position: top
                 type: sonata.admin.block.admin_list
@@ -162,3 +183,13 @@ fos_rest:
         view_response_listener: "force"
     routing_loader:
         default_format: json
+
+# CKEditor
+ivory_ck_editor:
+    inline: false
+    configs:
+        my_config:
+            toolbar: standard
+
+# Nelmio Api doc
+nelmio_api_doc: ~

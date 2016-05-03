@@ -5,6 +5,7 @@ use AppBundle\Entity\Traits\TitleTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class Category
@@ -21,7 +22,7 @@ class Category extends AbstractBase
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Event", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="category", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $events;
 

@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Date trait
@@ -18,6 +19,7 @@ Trait DateTrait
      * @var \DateTime
      *
      * @ORM\Column(type="date")
+     * @JMS\Groups({"list", "detail"})
      */
     private $date;
 
@@ -28,7 +30,7 @@ Trait DateTrait
      *
      * @return $this
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->date = $date;
 
