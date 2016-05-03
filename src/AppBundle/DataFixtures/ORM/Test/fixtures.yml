@@ -1,6 +1,6 @@
 ## Artists
 AppBundle\Entity\Artist:
-  artist{1..12}:
+  artist{1..5}:
     name: <name()>
     description: <paragraph()>
     urlVimeo: <url()>
@@ -13,7 +13,7 @@ AppBundle\Entity\Category:
 
 ## Events
 AppBundle\Entity\Event:
-  event{1..20}:
+  event{1..5}:
     date: <dateTimeThisMonth()>
     place: <state()>
     latitude: <latitude($min = -90, $max = 90)>
@@ -41,21 +41,3 @@ AppBundle\Entity\User:
         enabled: true
         roles:
             - ROLE_CMS
-    cms{1..4}:
-        username: <username()>
-        plainPassword: <password()>
-        email: <safeEmail()>
-        firstname: <name()>
-        lastname: <lastname()>
-        enabled: true
-        roles:
-            - ROLE_CMS
-    manager{1..2}:
-        username: <username()>
-        plainPassword: <password()>
-        email: <safeEmail()>
-        firstname: <name()>
-        lastname: <lastname()>
-        enabled: true
-        roles:
-            - ROLE_ADMIN
