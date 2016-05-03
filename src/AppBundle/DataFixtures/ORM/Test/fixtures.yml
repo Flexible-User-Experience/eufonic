@@ -18,7 +18,7 @@ AppBundle\Entity\Event:
     place: <state()>
     latitude: <latitude($min = -90, $max = 90)>
     longitude: <longitude($min = -180, $max = 180)>
-    artist: @artist<numberBetween(1, 12)>
+    artist: @artist<numberBetween(1, 5)>
     category: @category<numberBetween(1, 5)>
 
 ## Users
