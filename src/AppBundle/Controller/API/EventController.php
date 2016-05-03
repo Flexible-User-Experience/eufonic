@@ -5,14 +5,9 @@ namespace AppBundle\Controller\API;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Routing\ClassResourceInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-//use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-use Doctrine\ORM\EntityNotFoundException;
-use Symfony\Component\HttpFoundation\Request;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\Routing\Exception\InvalidParameterException;
 
 /**
  * Class EventController
@@ -31,12 +26,11 @@ class EventController extends FOSRestController implements ClassResourceInterfac
      *
      * @Rest\View(serializerGroups={"list"})
      * @Rest\Get("/list")
-     * ApiDoc(
+     * @ApiDoc(
      *  section="Event",
      *  resource=true,
      *  description="Get events list",
      *  requirements={
-     *      {"name"="_locale", "dataType"="string", "requirement"="ca|oc|es|en|fr", "description"="available locales"},
      *      {"name"="_format", "dataType"="string", "requirement"="json|xml", "description"="available formats"}
      *  },
      *  statusCodes={
@@ -58,12 +52,12 @@ class EventController extends FOSRestController implements ClassResourceInterfac
      *
      * @Rest\View(serializerGroups={"detail"})
      * @Rest\Get("/{id}")
-     * ApiDoc(
+     * @ApiDoc(
      *  section="Event",
      *  resource=true,
      *  description="Get event detail",
      *  requirements={
-     *      {"name"="_locale", "dataType"="string", "requirement"="ca|oc|es|en|fr", "description"="available locales"},
+     *      {"name"="id", "dataType"="integer", "description"="entity id"},
      *      {"name"="_format", "dataType"="string", "requirement"="json|xml", "description"="available formats"}
      *  },
      *  statusCodes={
