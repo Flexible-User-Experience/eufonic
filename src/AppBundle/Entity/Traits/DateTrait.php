@@ -18,7 +18,7 @@ Trait DateTrait
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      * @JMS\Groups({"list", "detail"})
      */
     private $date;
@@ -26,7 +26,7 @@ Trait DateTrait
     /**
      * Set Date
      *
-     * @param string $date
+     * @param \DateTime $date
      *
      * @return $this
      */
@@ -56,5 +56,4 @@ Trait DateTrait
     {
         return $this->getDate()->format('d/m/Y');
     }
-
 }

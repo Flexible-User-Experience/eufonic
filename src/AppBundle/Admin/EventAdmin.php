@@ -46,7 +46,7 @@ class EventAdmin extends AbstractBaseAdmin
                 'sonata_type_datetime_picker',
                 array(
                     'label'  => 'Data',
-                    'date_format' => 'yyyy-MM-dd HH:mm:ss',
+                    'date_format' => 'yyyy-MM-dd HH:mm:00',
                     )
             )
 //            ->add(
@@ -183,8 +183,8 @@ class EventAdmin extends AbstractBaseAdmin
                 array(
                     'label'    => 'Data',
                     'field_type' => 'sonata_type_datetime_picker',
-                    'format'   => 'd/M',
-                    'editable' => true,
+                    'format'   => 'd/m/Y H:i',
+                    'editable' => false,
                 )
             )
             ->add(
