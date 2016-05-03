@@ -190,3 +190,6 @@ ivory_ck_editor:
     configs:
         my_config:
             toolbar: standard
+
+# Nelmio Api doc
+nelmio_api_doc: ~
